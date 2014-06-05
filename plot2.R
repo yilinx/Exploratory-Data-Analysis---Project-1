@@ -20,6 +20,12 @@ endDate <- strptime("2007-02-02",format="%Y-%m-%d")      #end date
 datafile2 <- subset(datafile, Date >= startDate & Date <= endDate)   #select subset based on date
 remove(datafile)    #remove the varibale containing original txt file to free up memory space
 
+#export as png file
+png("plot2.png")
+
 #plot the line graph
 with(data=datafile2, plot(Time,Global_active_power, type="n", ylab="Global Active Power (kilowatts)", xlab=""))
 with(data=datafile2, lines(Time,Global_active_power))
+
+#off dev
+dev.off()

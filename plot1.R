@@ -15,5 +15,11 @@ endDate <- strptime("2007-02-02",format="%Y-%m-%d")      #end date
 datafile2 <- subset(datafile, Date >= startDate & Date <= endDate)   #select subset based on date
 remove(datafile)    #remove the varibale containing original txt file to free up memory space
 
+#export as png file
+png("plot1.png")
+
 #plot the histogram
 with(data=datafile2, hist(Global_active_power, col="red", main="Global Active Power", xlab="Global Active Power (kilowatts)"))
+
+#off dev
+dev.off()
